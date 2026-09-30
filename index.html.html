@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Años - Victor Daniel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            background: #000;
+            font-family: Inter, sans-serif;
+            color: #fff
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .85)), url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200') center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center
+        }
+
+        .name-wrap {
+            background: #000;
+            transform: rotate(-2deg);
+            padding: 14px 30px;
+            margin: 8px 0
+        }
+
+        .name-wrap h1 {
+            font-family: 'Bebas Neue';
+            font-size: 44px;
+            line-height: .9
+        }
+
+        .green {
+            color: #7CFC00
+        }
+
+        .age {
+            font-family: 'Bebas Neue';
+            font-size: 90px
+        }
+
+        .age span {
+            font-size: 26px;
+            display: block
+        }
+
+        .ball {
+            font-size: 120px;
+            animation: float 3s infinite ease-in-out;
+            margin: 10px
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-10px)
+            }
+        }
+
+        .box {
+            background: #000;
+            padding: 18px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 420px;
+            margin: 20px 0;
+            border: 1px solid #222
+        }
+
+        .timer {
+            display: flex;
+            gap: 8px
+        }
+
+        .u {
+            flex: 1;
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 10px
+        }
+
+        .u b {
+            font-size: 28px;
+            display: block
+        }
+
+        .u small {
+            font-size: 10px;
+            color: #aaa
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            max-width: 420px;
+            padding: 16px;
+            background: #7CFC00;
+            color: #000;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 8px 0
+        }
+
+        .btn-out {
+            background: transparent;
+            border: 2px solid #7CFC00;
+            color: #7CFC00
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div style="font-style:italic;transform:rotate(-5deg)">¡Estás invitado a mi<br>cumpleaños!</div>
+        <div style="margin:10px">👑</div>
+        <div class="name-wrap">
+            <h1>VICTOR DANIEL<br><span class="green">Molina Espejel</span></h1>
+        </div>
+        <div style="display:flex;gap:20px;align-items:center">
+            <div class="age">15<span>AÑOS</span></div>
+            <div style="text-align:left;font-style:italic;font-size:13px">Será un día muy especial<br>y quiero
+                compartirlo<br>contigo ⚽</div>
+        </div>
+        <div class="ball">⚽</div>
+        <div class="box">
+            <div style="color:#7CFC00;letter-spacing:2px;font-size:13px;margin-bottom:10px">⏱ FALTA POCO...</div>
+            <div class="timer">
+                <div class="u"><b id="d">00</b><small>DÍAS</small></div>
+                <div class="u"><b id="h">00</b><small>HORAS</small></div>
+                <div class="u"><b id="m">00</b><small>MINUTOS</small></div>
+                <div class="u"><b id="s">00</b><small>SEGUNDOS</small></div>
+            </div>
+        </div>
+        <div style="width:100%;max-width:420px;text-align:left;font-size:14px;line-height:1.4">
+            <p>📅 <b>3 de octubre 2026</b> | ⏰ 10am - 3pm<br>📍 Eventos Aguamarina, Col. Solidaridad</p>
+        </div>
+        <a class="btn"
+            href="https://wa.me/526624229988?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20los%2015%20a%C3%B1os%20de%20Victor%20Daniel%20Molina%20Espejel%20el%203%20de%20octubre%20%E2%9A%BD%F0%9F%8E%89"
+            target="_blank">CONFIRMAR POR WHATSAPP ✅</a>
+        <a class="btn btn-out"
+            href="https://www.google.com/maps/search/?api=1&query=Eventos+Aguamarina+Hermosillo+Colonia+Solidaridad"
+            target="_blank">VER UBICACIÓN EN MAPS 📍</a>
+        <div
+            style="margin-top:20px;background:#fff;color:#000;padding:10px 24px;transform:rotate(-3deg);font-weight:900;font-size:22px">
+            ¡No faltes!</div>
+    </div>
+    <script>
+        const target = new Date('2026-10-03T10:00:00-07:00').getTime();
+        function tick() { const now = Date.now(); let diff = target - now; if (diff < 0) diff = 0; const d = Math.floor(diff / 86400000), h = Math.floor(diff % 86400000 / 3600000), m = Math.floor(diff % 3600000 / 60000), s = Math.floor(diff % 60000 / 1000); document.getElementById('d').innerText = String(d).padStart(2, '0'); document.getElementById('h').innerText = String(h).padStart(2, '0'); document.getElementById('m').innerText = String(m).padStart(2, '0'); document.getElementById('s').innerText = String(s).padStart(2, '0'); }
+        setInterval(tick, 1000); tick();
+    </script>
+</body>
+
+</html>
